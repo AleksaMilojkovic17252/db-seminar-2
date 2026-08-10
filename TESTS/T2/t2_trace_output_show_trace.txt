@@ -1,0 +1,270 @@
+SET TRACING
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+SET TRACING
+timestamp	age	message	tag	location	operation	span
+2026-07-22 09:17:13.022976+00	00:00:00	=== SPAN START: session recording ===			session recording	0
+2026-07-22 09:17:13.023016+00	00:00:00.000039	[NoTxn pos:1] executing Sync	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor.go:2295	session recording	0
+2026-07-22 09:17:13.023128+00	00:00:00.000152	[NoTxn pos:2] executing ExecStmt: BEGIN TRANSACTION	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor.go:2295	session recording	0
+2026-07-22 09:17:13.023159+00	00:00:00.000182	executing: BEGIN TRANSACTION in state: NoTxn	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor_exec.go:106	session recording	0
+2026-07-22 09:17:13.023175+00	00:00:00.000198	=== SPAN START: sql txn ===			sql txn	1
+2026-07-22 09:17:13.023205+00	00:00:00.000229	[Open pos:3] executing Sync	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor.go:2295	sql txn	1
+2026-07-22 09:17:13.023317+00	00:00:00.000341	[Open pos:4] executing ExecStmt: UPDATE accounts SET balance = balance - 100 WHERE id = 1	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor.go:2295	sql txn	1
+2026-07-22 09:17:13.02333+00	00:00:00.000353	executing: UPDATE accounts SET balance = balance - 100 WHERE id = 1 in state: Open	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor_exec.go:106	sql txn	1
+2026-07-22 09:17:13.023331+00	00:00:00.000355	=== SPAN START: sql query ===			sql query	2
+2026-07-22 09:17:13.023361+00	00:00:00.000385	planning starts: UPDATE	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/exec_util.go:2678	sql query	2
+2026-07-22 09:17:13.023362+00	00:00:00.000386	=== SPAN START: optimizer ===			optimizer	3
+2026-07-22 09:17:13.023417+00	00:00:00.00044	"descriptorVersionState.incRefCount: 104(""seminar2"",0101807c92247072c448e99cd42f93131ace90) ver=1:1784712090.890175246,0, refcount=1"	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/lease/descriptor_version_state.go:138	optimizer	3
+2026-07-22 09:17:13.02343+00	00:00:00.000454	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	3
+2026-07-22 09:17:13.023442+00	00:00:00.000465	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	3
+2026-07-22 09:17:13.023448+00	00:00:00.000471	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	3
+2026-07-22 09:17:13.023453+00	00:00:00.000477	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	3
+2026-07-22 09:17:13.023459+00	00:00:00.000482	looking up descriptors for ids [105]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	3
+2026-07-22 09:17:13.023467+00	00:00:00.000491	"descriptorVersionState.incRefCount: 105(""public"",0101807c92247072c448e99cd42f93131ace90) ver=1:1784712071.773080775,0, refcount=1"	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/lease/descriptor_version_state.go:138	optimizer	3
+2026-07-22 09:17:13.023477+00	00:00:00.0005	"descriptorVersionState.incRefCount: 106(""accounts"",0101807c92247072c448e99cd42f93131ace90) ver=1:1784712067.146574794,0, refcount=1"	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/lease/descriptor_version_state.go:138	optimizer	3
+2026-07-22 09:17:13.023483+00	00:00:00.000507	looking up descriptors for ids [106]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	3
+2026-07-22 09:17:13.023512+00	00:00:00.000535	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	3
+2026-07-22 09:17:13.023517+00	00:00:00.00054	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	3
+2026-07-22 09:17:13.023521+00	00:00:00.000545	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	3
+2026-07-22 09:17:13.023526+00	00:00:00.000549	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	3
+2026-07-22 09:17:13.02353+00	00:00:00.000554	looking up descriptors for ids [105]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	3
+2026-07-22 09:17:13.023535+00	00:00:00.000559	looking up descriptors for ids [106]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	3
+2026-07-22 09:17:13.023544+00	00:00:00.000567	query cache hit	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/plan_opt.go:416	optimizer	3
+2026-07-22 09:17:13.02361+00	00:00:00.000633	optbuilder start	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/opt/optbuilder/builder.go:224	sql query	2
+2026-07-22 09:17:13.023617+00	00:00:00.000641	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	sql query	2
+2026-07-22 09:17:13.023623+00	00:00:00.000646	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	sql query	2
+2026-07-22 09:17:13.023628+00	00:00:00.000651	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	sql query	2
+2026-07-22 09:17:13.023632+00	00:00:00.000656	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	sql query	2
+2026-07-22 09:17:13.023638+00	00:00:00.000661	looking up descriptors for ids [105]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	sql query	2
+2026-07-22 09:17:13.023642+00	00:00:00.000666	looking up descriptors for ids [106]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	sql query	2
+2026-07-22 09:17:13.023791+00	00:00:00.000815	optbuilder finish	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/opt/optbuilder/builder.go:270	sql query	2
+2026-07-22 09:17:13.023824+00	00:00:00.000848	optimize start	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/opt/xform/optimizer.go:237	sql query	2
+2026-07-22 09:17:13.023852+00	00:00:00.000876	optimize finish	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/opt/xform/optimizer.go:286	sql query	2
+2026-07-22 09:17:13.02388+00	00:00:00.000904	optimize start	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/opt/xform/optimizer.go:237	sql query	2
+2026-07-22 09:17:13.023907+00	00:00:00.00093	optimize finish	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/opt/xform/optimizer.go:286	sql query	2
+2026-07-22 09:17:13.023956+00	00:00:00.00098	planning ends	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor_exec.go:1187	sql query	2
+2026-07-22 09:17:13.023963+00	00:00:00.000987	checking distributability	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor_exec.go:1187	sql query	2
+2026-07-22 09:17:13.023981+00	00:00:00.001005	query not supported for distSQL: unsupported node	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/exec_util.go:1956	sql query	2
+2026-07-22 09:17:13.023988+00	00:00:00.001012	will distribute plan: false	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor_exec.go:1187	sql query	2
+2026-07-22 09:17:13.023996+00	00:00:00.00102	executing after 0 retries, last retry reason: <nil>	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor_exec.go:1187	sql query	2
+2026-07-22 09:17:13.024005+00	00:00:00.001028	execution starts: distributed engine	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor_exec.go:1187	sql query	2
+2026-07-22 09:17:13.024006+00	00:00:00.001029	=== SPAN START: consuming rows ===			consuming rows	4
+2026-07-22 09:17:13.024016+00	00:00:00.001039	creating DistSQL plan with isLocal=true	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/distsql_running.go:2006	sql query	2
+2026-07-22 09:17:13.02405+00	00:00:00.001074	running DistSQL plan	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/distsql_running.go:831	sql query	2
+2026-07-22 09:17:13.024053+00	00:00:00.001077	=== SPAN START: flow ===			flow	5
+2026-07-22 09:17:13.024064+00	00:00:00.001087	setting up vectorized flow	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/colflow/vectorized_flow.go:226	flow	5
+2026-07-22 09:17:13.024118+00	00:00:00.001141	"planning a row-execution processor in the vectorized flow: unable to columnarize render expression ""crdb_internal.assignment_cast(@3 - 100, NULL::DECIMAL(15,2))"": builtins with FnWithExprs are not supported in the vectorized engine"	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/colexec/colbuilder/execplan.go:523	flow	5
+2026-07-22 09:17:13.024178+00	00:00:00.001201	planning a row-execution processor in the vectorized flow: LocalPlanNode core needs to be wrapped	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/colexec/colbuilder/execplan.go:523	flow	5
+2026-07-22 09:17:13.024192+00	00:00:00.001215	vectorized flow setup succeeded	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/colflow/vectorized_flow.go:267	flow	5
+2026-07-22 09:17:13.024202+00	00:00:00.001226	starting (0 processors, 0 startables) asynchronously	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/flowinfra/flow.go:460	flow	5
+2026-07-22 09:17:13.024208+00	00:00:00.001231	running the batch flow coordinator in the flow's goroutine	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/colflow/vectorized_flow.go:314	flow	5
+2026-07-22 09:17:13.024208+00	00:00:00.001232	=== SPAN START: batch flow coordinator ===			batch flow coordinator	6
+2026-07-22 09:17:13.02421+00	00:00:00.001234	=== SPAN START: columnarizer ===			columnarizer	7
+2026-07-22 09:17:13.024211+00	00:00:00.001235	=== SPAN START: count ===			count	8
+2026-07-22 09:17:13.024213+00	00:00:00.001237	=== SPAN START: materializer ===			materializer	9
+2026-07-22 09:17:13.024214+00	00:00:00.001238	=== SPAN START: columnarizer ===			columnarizer	10
+2026-07-22 09:17:13.024215+00	00:00:00.001238	=== SPAN START: noop ===			noop	11
+2026-07-22 09:17:13.024216+00	00:00:00.00124	=== SPAN START: materializer ===			materializer	12
+2026-07-22 09:17:13.024218+00	00:00:00.001241	=== SPAN START: colbatchscan ===			colbatchscan	13
+2026-07-22 09:17:13.02425+00	00:00:00.001274	Scan /Table/106/1/1/0 lock Exclusive (Block, Unreplicated)	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/row/kv_batch_fetcher.go:598	colbatchscan	13
+2026-07-22 09:17:13.024256+00	00:00:00.00128	kv fetcher: sending a batch with 1 requests	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/row/kv_batch_fetcher.go:284	colbatchscan	13
+2026-07-22 09:17:13.024259+00	00:00:00.001283	=== SPAN START: txn coordinator send ===			txn coordinator send	14
+2026-07-22 09:17:13.024269+00	00:00:00.001293	coordinator spawns heartbeat loop	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/txn_interceptor_heartbeater.go:319	txn coordinator send	14
+2026-07-22 09:17:13.024276+00	00:00:00.0013	=== SPAN START: dist sender send ===			dist sender send	15
+2026-07-22 09:17:13.024288+00	00:00:00.001312	querying next range at /Table/106/1/1/0	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/range_iter.go:183	dist sender send	15
+2026-07-22 09:17:13.024315+00	00:00:00.001338	key: /Table/106/1/1/0, desc: r70:/Table/106{-/1/2001} [(n1,s1):1, (n3,s3):2, (n2,s2):3, next=4, gen=9]	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/range_iter.go:220	dist sender send	15
+2026-07-22 09:17:13.024337+00	00:00:00.00136	r70: sending batch 1 Get to (n2,s2):3	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/dist_sender.go:2634	dist sender send	15
+2026-07-22 09:17:13.024348+00	00:00:00.001371	sending request to localhost:26258	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	rpc/nodedialer/nodedialer.go:143	dist sender send	15
+2026-07-22 09:17:13.024355+00	00:00:00.001378	sending batch request	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/transport.go:208	dist sender send	15
+2026-07-22 09:17:13.024358+00	00:00:00.001382	=== SPAN START: /cockroach.roachpb.Internal/Batch ===			/cockroach.roachpb.Internal/Batch	16
+2026-07-22 09:17:13.024545+00	00:00:00.001569	=== SPAN START: /cockroach.roachpb.Internal/Batch ===			/cockroach.roachpb.Internal/Batch	17
+2026-07-22 09:17:13.024563+00	00:00:00.001587	node received request: 1 Get	[n2]	server/node.go:1602	/cockroach.roachpb.Internal/Batch	17
+2026-07-22 09:17:13.024603+00	00:00:00.001626	executing Get(Exclusive,Unreplicated) [/Table/106/1/1/0], [txn: da3add62], [can-forward-ts], [max_span_request_keys: 0], [target_bytes: 10485760]	[n2,s2]	kv/kvserver/store_send.go:149	/cockroach.roachpb.Internal/Batch	17
+2026-07-22 09:17:13.024615+00	00:00:00.001638	read-only path	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_send.go:171	/cockroach.roachpb.Internal/Batch	17
+2026-07-22 09:17:13.024628+00	00:00:00.001652	sequencing request	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/concurrency/concurrency_manager.go:209	/cockroach.roachpb.Internal/Batch	17
+2026-07-22 09:17:13.024636+00	00:00:00.00166	acquiring latches	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/concurrency/concurrency_manager.go:290	/cockroach.roachpb.Internal/Batch	17
+2026-07-22 09:17:13.024647+00	00:00:00.001671	scanning lock table for conflicting locks	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/concurrency/concurrency_manager.go:334	/cockroach.roachpb.Internal/Batch	17
+2026-07-22 09:17:13.024671+00	00:00:00.001695	executing read-only batch	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_read.go:421	/cockroach.roachpb.Internal/Batch	17
+2026-07-22 09:17:13.025208+00	00:00:00.002232	"evaluated Get command header:<kvnemesis_seq:<> key:""\362\211\211\210"" > key_locking_strength:Exclusive , txn=""sql txn"" meta={id=da3add62 key=/Table/106/1/1/0 iso=Serializable pri=0.03380040 epo=0 ts=1784711833.023177787,0 min=1784711833.023177787,0 seq=0} lock=true stat=PENDING rts=1784711833.023177787,0 wto=false gul=1784711833.523177787,0 : resp=header:<num_keys:1 num_bytes:42 > value:<raw_bytes:""\201\232\223\370\n&\006user_1\025\0054\214\016\364 \026\teu-west-1\030\210\277\203\246\r\360\204\306\224\001"" timestamp:<wall_time:1784711776454323211 > > , err=<nil>"	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_evaluate.go:511	/cockroach.roachpb.Internal/Batch	17
+2026-07-22 09:17:13.025235+00	00:00:00.002259	n2 scan stats: stepped 0 times (2 internal); seeked 2 times (2 internal); block-bytes: (total 49 KiB, cached 0 B, duration 9.094µs); points: (count 3, key-bytes 72 B, value-bytes 122 B, tombstoned: 0) ranges: (count 0), (contained-points 0, skipped-points 0) evaluated requests: 1 gets, 0 scans, 0 reverse scans			/cockroach.roachpb.Internal/Batch	17
+2026-07-22 09:17:13.025247+00	00:00:00.00227	acquiring 1 unreplicated locks	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_read.go:526	/cockroach.roachpb.Internal/Batch	17
+2026-07-22 09:17:13.025269+00	00:00:00.002293	read completed	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_read.go:233	/cockroach.roachpb.Internal/Batch	17
+2026-07-22 09:17:13.025295+00	00:00:00.002319	node sending response	[n2]	server/node.go:1696	/cockroach.roachpb.Internal/Batch	17
+2026-07-22 09:17:13.025474+00	00:00:00.002498	received batch response	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/transport.go:210	dist sender send	15
+2026-07-22 09:17:13.025523+00	00:00:00.002547	recording span to refresh: /Table/106/1/1/0	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/txn_interceptor_span_refresher.go:656	txn coordinator send	14
+2026-07-22 09:17:13.025646+00	00:00:00.002669	ComponentStats{ID: {393df235-eb68-4771-8f93-905f2ceda94b PROCESSOR 0 1 }, input rows: 1, input stall time: 1ms, KV nodes: n2, KV regions: us-east-1, KV time: 1ms, KV contention time: 0µs, KV rows decoded: 1, KV bytes read: 46 B, KV gRPC calls: 1, KV pairs read: 1, MVCC step count (ext/int): 0/2, MVCC seek count (ext/int): 2/2, max memory allocated: 20 KiB, sql cpu time: 64µs, batches output: 1, rows output: 1}			materializer	9
+2026-07-22 09:17:13.025672+00	00:00:00.002696	writing batch with 1 requests	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/tablewriter.go:244	count	8
+2026-07-22 09:17:13.025675+00	00:00:00.002699	=== SPAN START: txn coordinator send ===			txn coordinator send	18
+2026-07-22 09:17:13.02568+00	00:00:00.002704	=== SPAN START: dist sender send ===			dist sender send	19
+2026-07-22 09:17:13.025697+00	00:00:00.00272	querying next range at /Table/106/1/1/0	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/range_iter.go:183	dist sender send	19
+2026-07-22 09:17:13.02573+00	00:00:00.002753	key: /Table/106/1/1/0, desc: r70:/Table/106{-/1/2001} [(n1,s1):1, (n3,s3):2, (n2,s2):3, next=4, gen=9]	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/range_iter.go:220	dist sender send	19
+2026-07-22 09:17:13.025751+00	00:00:00.002775	r70: sending batch 1 Put to (n2,s2):3	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/dist_sender.go:2634	dist sender send	19
+2026-07-22 09:17:13.025763+00	00:00:00.002787	sending request to localhost:26258	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	rpc/nodedialer/nodedialer.go:143	dist sender send	19
+2026-07-22 09:17:13.025773+00	00:00:00.002797	sending batch request	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/transport.go:208	dist sender send	19
+2026-07-22 09:17:13.025775+00	00:00:00.002799	=== SPAN START: /cockroach.roachpb.Internal/Batch ===			/cockroach.roachpb.Internal/Batch	20
+2026-07-22 09:17:13.025883+00	00:00:00.002907	=== SPAN START: /cockroach.roachpb.Internal/Batch ===			/cockroach.roachpb.Internal/Batch	21
+2026-07-22 09:17:13.025899+00	00:00:00.002923	node received request: 1 Put	[n2]	server/node.go:1602	/cockroach.roachpb.Internal/Batch	21
+2026-07-22 09:17:13.025918+00	00:00:00.002942	r70/3 bypassed request (pri=normal-pri)	[n2]	kv/kvserver/kvflowcontrol/rac2/range_controller.go:701	/cockroach.roachpb.Internal/Batch	21
+2026-07-22 09:17:13.025944+00	00:00:00.002968	executing Put [/Table/106/1/1/0], [txn: da3add62]	[n2,s2]	kv/kvserver/store_send.go:149	/cockroach.roachpb.Internal/Batch	21
+2026-07-22 09:17:13.025955+00	00:00:00.002978	read-write path	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_send.go:175	/cockroach.roachpb.Internal/Batch	21
+2026-07-22 09:17:13.025966+00	00:00:00.002989	sequencing request	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/concurrency/concurrency_manager.go:209	/cockroach.roachpb.Internal/Batch	21
+2026-07-22 09:17:13.025973+00	00:00:00.002996	acquiring latches	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/concurrency/concurrency_manager.go:290	/cockroach.roachpb.Internal/Batch	21
+2026-07-22 09:17:13.025982+00	00:00:00.003006	scanning lock table for conflicting locks	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/concurrency/concurrency_manager.go:334	/cockroach.roachpb.Internal/Batch	21
+2026-07-22 09:17:13.025988+00	00:00:00.003012	=== SPAN START: executeWriteBatch ===			executeWriteBatch	22
+2026-07-22 09:17:13.026005+00	00:00:00.003029	applied timestamp cache	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_write.go:176	executeWriteBatch	22
+2026-07-22 09:17:13.026014+00	00:00:00.003038	executing read-write batch	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_write.go:432	executeWriteBatch	22
+2026-07-22 09:17:13.026492+00	00:00:00.003515	"evaluated Put command header:<kvnemesis_seq:<> key:""\362\211\211\210"" sequence:1 > value:<raw_bytes:""P\230\301\362\n&\006user_1\025\0054\214\016\315\020\026\teu-west-1\030\210\277\203\246\r\360\204\306\224\001"" timestamp:<> > , txn=""sql txn"" meta={id=da3add62 key=/Table/106/1/1/0 iso=Serializable pri=0.03380040 epo=0 ts=1784711833.023177787,0 min=1784711833.023177787,0 seq=1} lock=true stat=PENDING rts=1784711833.023177787,0 wto=false gul=1784711833.523177787,0 : resp=header:<> , err=<nil>"	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_evaluate.go:511	executeWriteBatch	22
+2026-07-22 09:17:13.026507+00	00:00:00.00353	need consensus on write batch with op count=2	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_proposal.go:1047	executeWriteBatch	22
+2026-07-22 09:17:13.026529+00	00:00:00.003552	evaluated request	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_raft.go:126	executeWriteBatch	22
+2026-07-22 09:17:13.026541+00	00:00:00.003564	proposing command to write 0 new keys, 1 new values, 1 new intents, write batch size=186 bytes	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_raft.go:171	executeWriteBatch	22
+2026-07-22 09:17:13.026586+00	00:00:00.00361	node sending response	[n2]	server/node.go:1696	/cockroach.roachpb.Internal/Batch	21
+2026-07-22 09:17:13.026749+00	00:00:00.003772	received batch response	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/transport.go:210	dist sender send	19
+2026-07-22 09:17:13.026796+00	00:00:00.003819	fast path completed	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/plan_node_to_row_source.go:183	count	8
+2026-07-22 09:17:13.026824+00	00:00:00.003847	ComponentStats{ID: {393df235-eb68-4771-8f93-905f2ceda94b PROCESSOR 1 1 }, execution time: 1ms, sql cpu time: 337µs, batches output: 1, rows output: 1}			batch flow coordinator	6
+2026-07-22 09:17:13.026847+00	00:00:00.003871	ComponentStats{ID: {393df235-eb68-4771-8f93-905f2ceda94b FLOW 0 1 eu-west-1}}			flow	5
+2026-07-22 09:17:13.026879+00	00:00:00.003903	execution ends	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor_exec.go:1187	sql query	2
+2026-07-22 09:17:13.026887+00	00:00:00.003911	rows affected: 1	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor_exec.go:1187	sql query	2
+2026-07-22 09:17:13.026963+00	00:00:00.003987	[Open pos:5] executing Sync	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor.go:2295	sql txn	1
+2026-07-22 09:17:13.027148+00	00:00:00.004171	[Open pos:6] executing ExecStmt: UPDATE accounts SET balance = balance + 100 WHERE id = 9000	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor.go:2295	sql txn	1
+2026-07-22 09:17:13.027174+00	00:00:00.004198	executing: UPDATE accounts SET balance = balance + 100 WHERE id = 9000 in state: Open	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor_exec.go:106	sql txn	1
+2026-07-22 09:17:13.027177+00	00:00:00.0042	=== SPAN START: sql query ===			sql query	23
+2026-07-22 09:17:13.027217+00	00:00:00.004241	planning starts: UPDATE	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/exec_util.go:2678	sql query	23
+2026-07-22 09:17:13.027219+00	00:00:00.004242	=== SPAN START: optimizer ===			optimizer	24
+2026-07-22 09:17:13.027248+00	00:00:00.004272	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	24
+2026-07-22 09:17:13.027267+00	00:00:00.00429	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	24
+2026-07-22 09:17:13.027277+00	00:00:00.004301	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	24
+2026-07-22 09:17:13.02729+00	00:00:00.004313	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	24
+2026-07-22 09:17:13.027298+00	00:00:00.004322	looking up descriptors for ids [105]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	24
+2026-07-22 09:17:13.027308+00	00:00:00.004332	looking up descriptors for ids [106]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	24
+2026-07-22 09:17:13.027333+00	00:00:00.004356	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	24
+2026-07-22 09:17:13.027343+00	00:00:00.004367	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	24
+2026-07-22 09:17:13.027352+00	00:00:00.004376	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	24
+2026-07-22 09:17:13.027363+00	00:00:00.004386	looking up descriptors for ids [104]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	24
+2026-07-22 09:17:13.027372+00	00:00:00.004395	looking up descriptors for ids [105]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	24
+2026-07-22 09:17:13.02738+00	00:00:00.004404	looking up descriptors for ids [106]	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/descriptor.go:132	optimizer	24
+2026-07-22 09:17:13.027396+00	00:00:00.00442	query cache hit	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/plan_opt.go:416	optimizer	24
+2026-07-22 09:17:13.027482+00	00:00:00.004505	planning ends	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor_exec.go:1187	sql query	23
+2026-07-22 09:17:13.027492+00	00:00:00.004516	checking distributability	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor_exec.go:1187	sql query	23
+2026-07-22 09:17:13.027516+00	00:00:00.00454	query not supported for distSQL: unsupported node	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/exec_util.go:1956	sql query	23
+2026-07-22 09:17:13.027528+00	00:00:00.004551	will distribute plan: false	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor_exec.go:1187	sql query	23
+2026-07-22 09:17:13.027541+00	00:00:00.004565	executing after 0 retries, last retry reason: <nil>	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor_exec.go:1187	sql query	23
+2026-07-22 09:17:13.027554+00	00:00:00.004577	execution starts: distributed engine	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor_exec.go:1187	sql query	23
+2026-07-22 09:17:13.027555+00	00:00:00.004578	=== SPAN START: consuming rows ===			consuming rows	25
+2026-07-22 09:17:13.027569+00	00:00:00.004593	creating DistSQL plan with isLocal=true	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/distsql_running.go:2006	sql query	23
+2026-07-22 09:17:13.027602+00	00:00:00.004625	running DistSQL plan	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/distsql_running.go:831	sql query	23
+2026-07-22 09:17:13.027605+00	00:00:00.004628	=== SPAN START: flow ===			flow	26
+2026-07-22 09:17:13.02762+00	00:00:00.004644	setting up vectorized flow	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/colflow/vectorized_flow.go:226	flow	26
+2026-07-22 09:17:13.027695+00	00:00:00.004718	"planning a row-execution processor in the vectorized flow: unable to columnarize render expression ""crdb_internal.assignment_cast(@3 + 100, NULL::DECIMAL(15,2))"": builtins with FnWithExprs are not supported in the vectorized engine"	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/colexec/colbuilder/execplan.go:523	flow	26
+2026-07-22 09:17:13.02772+00	00:00:00.004744	planning a row-execution processor in the vectorized flow: LocalPlanNode core needs to be wrapped	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/colexec/colbuilder/execplan.go:523	flow	26
+2026-07-22 09:17:13.027735+00	00:00:00.004758	vectorized flow setup succeeded	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/colflow/vectorized_flow.go:267	flow	26
+2026-07-22 09:17:13.027747+00	00:00:00.004771	starting (0 processors, 0 startables) asynchronously	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/flowinfra/flow.go:460	flow	26
+2026-07-22 09:17:13.027757+00	00:00:00.004781	running the batch flow coordinator in the flow's goroutine	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/colflow/vectorized_flow.go:314	flow	26
+2026-07-22 09:17:13.027758+00	00:00:00.004782	=== SPAN START: batch flow coordinator ===			batch flow coordinator	27
+2026-07-22 09:17:13.02776+00	00:00:00.004784	=== SPAN START: columnarizer ===			columnarizer	28
+2026-07-22 09:17:13.027761+00	00:00:00.004785	=== SPAN START: count ===			count	29
+2026-07-22 09:17:13.027763+00	00:00:00.004786	=== SPAN START: materializer ===			materializer	30
+2026-07-22 09:17:13.027764+00	00:00:00.004787	=== SPAN START: columnarizer ===			columnarizer	31
+2026-07-22 09:17:13.027765+00	00:00:00.004788	=== SPAN START: noop ===			noop	32
+2026-07-22 09:17:13.027766+00	00:00:00.00479	=== SPAN START: materializer ===			materializer	33
+2026-07-22 09:17:13.027767+00	00:00:00.004791	=== SPAN START: colbatchscan ===			colbatchscan	34
+2026-07-22 09:17:13.027807+00	00:00:00.004831	Scan /Table/106/1/9000/0 lock Exclusive (Block, Unreplicated)	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/row/kv_batch_fetcher.go:598	colbatchscan	34
+2026-07-22 09:17:13.027817+00	00:00:00.00484	kv fetcher: sending a batch with 1 requests	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/row/kv_batch_fetcher.go:284	colbatchscan	34
+2026-07-22 09:17:13.02782+00	00:00:00.004844	=== SPAN START: txn coordinator send ===			txn coordinator send	35
+2026-07-22 09:17:13.027829+00	00:00:00.004853	=== SPAN START: dist sender send ===			dist sender send	36
+2026-07-22 09:17:13.027847+00	00:00:00.004871	querying next range at /Table/106/1/9000/0	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/range_iter.go:183	dist sender send	36
+2026-07-22 09:17:13.027887+00	00:00:00.00491	key: /Table/106/1/9000/0, desc: r74:/Table/1{06/1/8001-10/1/2} [(n1,s1):1, (n3,s3):2, (n2,s2):3, next=4, gen=13, sticky=9223372036.854775807,2147483647]	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/range_iter.go:220	dist sender send	36
+2026-07-22 09:17:13.027915+00	00:00:00.004939	r74: sending batch 1 Get to (n1,s1):1	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/dist_sender.go:2634	dist sender send	36
+2026-07-22 09:17:13.027929+00	00:00:00.004952	sending request to local client	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	rpc/nodedialer/nodedialer.go:134	dist sender send	36
+2026-07-22 09:17:13.027938+00	00:00:00.004961	sending batch request	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/transport.go:208	dist sender send	36
+2026-07-22 09:17:13.027944+00	00:00:00.004967	=== SPAN START: /cockroach.roachpb.Internal/Batch ===			/cockroach.roachpb.Internal/Batch	37
+2026-07-22 09:17:13.027951+00	00:00:00.004975	node received request: 1 Get	[n1]	server/node.go:1602	/cockroach.roachpb.Internal/Batch	37
+2026-07-22 09:17:13.027981+00	00:00:00.005004	executing Get(Exclusive,Unreplicated) [/Table/106/1/9000/0], [txn: da3add62], [max_span_request_keys: 0], [target_bytes: 10485760]	[n1,s1]	kv/kvserver/store_send.go:149	/cockroach.roachpb.Internal/Batch	37
+2026-07-22 09:17:13.027992+00	00:00:00.005016	read-only path	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	kv/kvserver/replica_send.go:171	/cockroach.roachpb.Internal/Batch	37
+2026-07-22 09:17:13.028006+00	00:00:00.00503	sequencing request	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	kv/kvserver/concurrency/concurrency_manager.go:209	/cockroach.roachpb.Internal/Batch	37
+2026-07-22 09:17:13.028014+00	00:00:00.005038	acquiring latches	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	kv/kvserver/concurrency/concurrency_manager.go:290	/cockroach.roachpb.Internal/Batch	37
+2026-07-22 09:17:13.028026+00	00:00:00.005049	scanning lock table for conflicting locks	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	kv/kvserver/concurrency/concurrency_manager.go:334	/cockroach.roachpb.Internal/Batch	37
+2026-07-22 09:17:13.02805+00	00:00:00.005074	executing read-only batch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	kv/kvserver/replica_read.go:421	/cockroach.roachpb.Internal/Batch	37
+2026-07-22 09:17:13.028569+00	00:00:00.005593	"evaluated Get command header:<kvnemesis_seq:<> key:""\362\211\367#(\210"" sequence:1 > key_locking_strength:Exclusive , txn=""sql txn"" meta={id=da3add62 key=/Table/106/1/1/0 iso=Serializable pri=0.03380040 epo=0 ts=1784711833.023177787,0 min=1784711833.023177787,0 seq=1} lock=true stat=PENDING rts=1784711833.023177787,0 wto=false gul=1784711833.523177787,0 : resp=header:<num_keys:1 num_bytes:45 > value:<raw_bytes:""\375\024\301\366\n&\tuser_9000\025\0054\215\017\220`\026\tus-west-1\030\210\277\203\246\r\360\204\306\224\001"" timestamp:<wall_time:1784711776454323211 > > , err=<nil>"	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	kv/kvserver/replica_evaluate.go:511	/cockroach.roachpb.Internal/Batch	37
+2026-07-22 09:17:13.028599+00	00:00:00.005622	n1 scan stats: stepped 0 times (2 internal); seeked 2 times (2 internal); block-bytes: (total 47 KiB, cached 0 B, duration 11.073µs); points: (count 3, key-bytes 78 B, value-bytes 125 B, tombstoned: 0) ranges: (count 0), (contained-points 0, skipped-points 0) evaluated requests: 1 gets, 0 scans, 0 reverse scans separated: (count: 1, bytes: 70 B, bytes-fetched: 0 B)			/cockroach.roachpb.Internal/Batch	37
+2026-07-22 09:17:13.02861+00	00:00:00.005634	acquiring 1 unreplicated locks	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	kv/kvserver/replica_read.go:526	/cockroach.roachpb.Internal/Batch	37
+2026-07-22 09:17:13.028631+00	00:00:00.005654	read completed	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	kv/kvserver/replica_read.go:233	/cockroach.roachpb.Internal/Batch	37
+2026-07-22 09:17:13.028655+00	00:00:00.005679	node sending response	[n1]	server/node.go:1696	/cockroach.roachpb.Internal/Batch	37
+2026-07-22 09:17:13.028693+00	00:00:00.005716	received batch response	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/transport.go:210	dist sender send	36
+2026-07-22 09:17:13.028726+00	00:00:00.005749	recording span to refresh: /Table/106/1/9000/0	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/txn_interceptor_span_refresher.go:656	txn coordinator send	35
+2026-07-22 09:17:13.028837+00	00:00:00.00586	ComponentStats{ID: {32058128-ddf8-4501-8c3f-068b332ff46c PROCESSOR 0 1 }, input rows: 1, input stall time: 981µs, KV nodes: n1, KV regions: eu-west-1, KV time: 1ms, KV contention time: 0µs, KV rows decoded: 1, KV bytes read: 51 B, KV gRPC calls: 1, KV pairs read: 1, MVCC step count (ext/int): 0/2, MVCC seek count (ext/int): 2/2, max memory allocated: 20 KiB, sql cpu time: 61µs, batches output: 1, rows output: 1}			materializer	30
+2026-07-22 09:17:13.028861+00	00:00:00.005884	writing batch with 1 requests	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/tablewriter.go:244	count	29
+2026-07-22 09:17:13.028863+00	00:00:00.005887	=== SPAN START: txn coordinator send ===			txn coordinator send	38
+2026-07-22 09:17:13.02887+00	00:00:00.005893	=== SPAN START: dist sender send ===			dist sender send	39
+2026-07-22 09:17:13.028885+00	00:00:00.005909	querying next range at /Table/106/1/9000/0	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/range_iter.go:183	dist sender send	39
+2026-07-22 09:17:13.028917+00	00:00:00.00594	key: /Table/106/1/9000/0, desc: r74:/Table/1{06/1/8001-10/1/2} [(n1,s1):1, (n3,s3):2, (n2,s2):3, next=4, gen=13, sticky=9223372036.854775807,2147483647]	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/range_iter.go:220	dist sender send	39
+2026-07-22 09:17:13.028937+00	00:00:00.005961	r74: sending batch 1 Put to (n1,s1):1	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/dist_sender.go:2634	dist sender send	39
+2026-07-22 09:17:13.028968+00	00:00:00.005991	sending request to local client	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	rpc/nodedialer/nodedialer.go:134	dist sender send	39
+2026-07-22 09:17:13.028976+00	00:00:00.006	sending batch request	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/transport.go:208	dist sender send	39
+2026-07-22 09:17:13.02898+00	00:00:00.006004	=== SPAN START: /cockroach.roachpb.Internal/Batch ===			/cockroach.roachpb.Internal/Batch	40
+2026-07-22 09:17:13.028986+00	00:00:00.00601	node received request: 1 Put	[n1]	server/node.go:1602	/cockroach.roachpb.Internal/Batch	40
+2026-07-22 09:17:13.028999+00	00:00:00.006023	r74/1 bypassed request (pri=locking-normal-pri)	[n1]	kv/kvserver/kvflowcontrol/rac2/range_controller.go:701	/cockroach.roachpb.Internal/Batch	40
+2026-07-22 09:17:13.029021+00	00:00:00.006045	executing Put [/Table/106/1/9000/0], [txn: da3add62]	[n1,s1]	kv/kvserver/store_send.go:149	/cockroach.roachpb.Internal/Batch	40
+2026-07-22 09:17:13.02903+00	00:00:00.006054	read-write path	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	kv/kvserver/replica_send.go:175	/cockroach.roachpb.Internal/Batch	40
+2026-07-22 09:17:13.02904+00	00:00:00.006063	sequencing request	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	kv/kvserver/concurrency/concurrency_manager.go:209	/cockroach.roachpb.Internal/Batch	40
+2026-07-22 09:17:13.029046+00	00:00:00.00607	acquiring latches	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	kv/kvserver/concurrency/concurrency_manager.go:290	/cockroach.roachpb.Internal/Batch	40
+2026-07-22 09:17:13.029055+00	00:00:00.006079	scanning lock table for conflicting locks	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	kv/kvserver/concurrency/concurrency_manager.go:334	/cockroach.roachpb.Internal/Batch	40
+2026-07-22 09:17:13.02906+00	00:00:00.006084	=== SPAN START: executeWriteBatch ===			executeWriteBatch	41
+2026-07-22 09:17:13.029076+00	00:00:00.006099	applied timestamp cache	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	kv/kvserver/replica_write.go:176	executeWriteBatch	41
+2026-07-22 09:17:13.029085+00	00:00:00.006108	executing read-write batch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	kv/kvserver/replica_write.go:432	executeWriteBatch	41
+2026-07-22 09:17:13.029571+00	00:00:00.006594	"evaluated Put command header:<kvnemesis_seq:<> key:""\362\211\367#(\210"" sequence:2 > value:<raw_bytes:""3\250\216\267\n&\tuser_9000\025\0054\215\017\267p\026\tus-west-1\030\210\277\203\246\r\360\204\306\224\001"" timestamp:<> > , txn=""sql txn"" meta={id=da3add62 key=/Table/106/1/1/0 iso=Serializable pri=0.03380040 epo=0 ts=1784711833.023177787,0 min=1784711833.023177787,0 seq=2} lock=true stat=PENDING rts=1784711833.023177787,0 wto=false gul=1784711833.523177787,0 : resp=header:<> , err=<nil>"	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	kv/kvserver/replica_evaluate.go:511	executeWriteBatch	41
+2026-07-22 09:17:13.029585+00	00:00:00.006608	need consensus on write batch with op count=2	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	kv/kvserver/replica_proposal.go:1047	executeWriteBatch	41
+2026-07-22 09:17:13.029604+00	00:00:00.006628	evaluated request	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	kv/kvserver/replica_raft.go:126	executeWriteBatch	41
+2026-07-22 09:17:13.029614+00	00:00:00.006638	proposing command to write 0 new keys, 1 new values, 1 new intents, write batch size=193 bytes	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	kv/kvserver/replica_raft.go:171	executeWriteBatch	41
+2026-07-22 09:17:13.029653+00	00:00:00.006677	node sending response	[n1]	server/node.go:1696	/cockroach.roachpb.Internal/Batch	40
+2026-07-22 09:17:13.02968+00	00:00:00.006703	received batch response	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/transport.go:210	dist sender send	39
+2026-07-22 09:17:13.029715+00	00:00:00.006738	fast path completed	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/plan_node_to_row_source.go:183	count	29
+2026-07-22 09:17:13.029744+00	00:00:00.006767	ComponentStats{ID: {32058128-ddf8-4501-8c3f-068b332ff46c PROCESSOR 1 1 }, execution time: 949µs, sql cpu time: 824µs, batches output: 1, rows output: 1}			batch flow coordinator	27
+2026-07-22 09:17:13.029772+00	00:00:00.006795	ComponentStats{ID: {32058128-ddf8-4501-8c3f-068b332ff46c FLOW 0 1 eu-west-1}}			flow	26
+2026-07-22 09:17:13.029809+00	00:00:00.006832	execution ends	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor_exec.go:1187	sql query	23
+2026-07-22 09:17:13.029821+00	00:00:00.006844	rows affected: 1	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor_exec.go:1187	sql query	23
+2026-07-22 09:17:13.029909+00	00:00:00.006933	[Open pos:7] executing Sync	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor.go:2295	sql txn	1
+2026-07-22 09:17:13.029995+00	00:00:00.007018	[Open pos:8] executing ExecStmt: COMMIT TRANSACTION	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor.go:2295	sql txn	1
+2026-07-22 09:17:13.030002+00	00:00:00.007026	executing: COMMIT TRANSACTION in state: Open	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor_exec.go:106	sql txn	1
+2026-07-22 09:17:13.030004+00	00:00:00.007028	=== SPAN START: sql query ===			sql query	42
+2026-07-22 09:17:13.030018+00	00:00:00.007042	=== SPAN START: commit sql txn ===			commit sql txn	43
+2026-07-22 09:17:13.030022+00	00:00:00.007046	=== SPAN START: txn coordinator send ===			txn coordinator send	44
+2026-07-22 09:17:13.03003+00	00:00:00.007054	=== SPAN START: dist sender send ===			dist sender send	45
+2026-07-22 09:17:13.030049+00	00:00:00.007072	querying next range at /Table/106/1/1/0	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/range_iter.go:183	dist sender send	45
+2026-07-22 09:17:13.030073+00	00:00:00.007097	key: /Table/106/1/1/0, desc: r70:/Table/106{-/1/2001} [(n1,s1):1, (n3,s3):2, (n2,s2):3, next=4, gen=9]	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/range_iter.go:220	dist sender send	45
+2026-07-22 09:17:13.030088+00	00:00:00.007111	r70: sending batch 1 EndTxn to (n2,s2):3	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/dist_sender.go:2634	dist sender send	45
+2026-07-22 09:17:13.030098+00	00:00:00.007121	sending request to localhost:26258	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	rpc/nodedialer/nodedialer.go:143	dist sender send	45
+2026-07-22 09:17:13.030105+00	00:00:00.007128	sending batch request	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/transport.go:208	dist sender send	45
+2026-07-22 09:17:13.030107+00	00:00:00.007131	=== SPAN START: /cockroach.roachpb.Internal/Batch ===			/cockroach.roachpb.Internal/Batch	46
+2026-07-22 09:17:13.030212+00	00:00:00.007236	=== SPAN START: /cockroach.roachpb.Internal/Batch ===			/cockroach.roachpb.Internal/Batch	47
+2026-07-22 09:17:13.030228+00	00:00:00.007251	node received request: 1 EndTxn	[n2]	server/node.go:1602	/cockroach.roachpb.Internal/Batch	47
+2026-07-22 09:17:13.03024+00	00:00:00.007263	r70/3 bypassed request (pri=locking-normal-pri)	[n2]	kv/kvserver/kvflowcontrol/rac2/range_controller.go:701	/cockroach.roachpb.Internal/Batch	47
+2026-07-22 09:17:13.030265+00	00:00:00.007289	executing EndTxn(parallel commit) [/Table/106/1/1/0], [txn: da3add62]	[n2,s2]	kv/kvserver/store_send.go:149	/cockroach.roachpb.Internal/Batch	47
+2026-07-22 09:17:13.030275+00	00:00:00.007299	read-write path	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_send.go:175	/cockroach.roachpb.Internal/Batch	47
+2026-07-22 09:17:13.030285+00	00:00:00.007308	sequencing request	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/concurrency/concurrency_manager.go:209	/cockroach.roachpb.Internal/Batch	47
+2026-07-22 09:17:13.03029+00	00:00:00.007313	acquiring latches	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/concurrency/concurrency_manager.go:290	/cockroach.roachpb.Internal/Batch	47
+2026-07-22 09:17:13.030293+00	00:00:00.007317	=== SPAN START: executeWriteBatch ===			executeWriteBatch	48
+2026-07-22 09:17:13.030304+00	00:00:00.007327	applied timestamp cache	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_write.go:176	executeWriteBatch	48
+2026-07-22 09:17:13.030311+00	00:00:00.007335	executing read-write batch	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_write.go:432	executeWriteBatch	48
+2026-07-22 09:17:13.030587+00	00:00:00.007611	"evaluated EndTxn command header:<kvnemesis_seq:<> key:""\362\211\211\210"" sequence:3 > commit:true deadline:<wall_time:1784712067146574794 > lock_spans:<key:""\362\211\211\210"" > lock_spans:<key:""\362\211\367#(\210"" > in_flight_writes:<key:""\362\211\211\210"" sequence:1 strength:I..., txn=""sql txn"" meta={id=da3add62 key=/Table/106/1/1/0 iso=Serializable pri=0.03380040 epo=0 ts=1784711833.023177787,0 min=1784711833.023177787,0 seq=3} lock=true stat=PENDING rts=1784711833.023177787,0 wto=false gul=1784711833.523177787,0 : resp=header:<txn:<meta:<id:da3add62-bcc4-4d75-b72b-3a80d88fab08 key:""\362\211\211\210"" write_timestamp:<wall_time:1784711833023177787 > min_timestamp:<wall_time:1784711833023177787 > priority:725858 sequence:3 coordinator_node_id:1 > name:""sql txn"" status:ST..., err=<nil>"	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_evaluate.go:511	executeWriteBatch	48
+2026-07-22 09:17:13.030596+00	00:00:00.00762	need consensus on write batch with op count=1	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_proposal.go:1047	executeWriteBatch	48
+2026-07-22 09:17:13.030608+00	00:00:00.007632	evaluated request	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_raft.go:126	executeWriteBatch	48
+2026-07-22 09:17:13.030615+00	00:00:00.007639	proposing command to write 0 new keys, 0 new values, 0 new intents, write batch size=186 bytes	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_raft.go:171	executeWriteBatch	48
+2026-07-22 09:17:13.030623+00	00:00:00.007646	acquiring proposal quota (297 bytes)	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_raft.go:284	executeWriteBatch	48
+2026-07-22 09:17:13.030634+00	00:00:00.007658	submitting proposal to proposal buffer	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_raft.go:462	executeWriteBatch	48
+2026-07-22 09:17:13.030649+00	00:00:00.007672	flushing proposal to Raft	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/replica_proposal_buf.go:575	executeWriteBatch	48
+2026-07-22 09:17:13.030659+00	00:00:00.007683	too many active raft traces, skipping	[n2,s2,r70/3:/Table/106{-/1/2001}]	kv/kvserver/rafttrace/rafttrace.go:318	executeWriteBatch	48
+2026-07-22 09:17:13.040083+00	00:00:00.017107	=== SPAN START: local proposal ===			local proposal	49
+2026-07-22 09:17:13.040136+00	00:00:00.017159	applying command	[n2,s2,r70/3:/Table/106{-/1/2001},raft]	kv/kvserver/app_batch.go:116	local proposal	49
+2026-07-22 09:17:13.040209+00	00:00:00.017233	LocalResult (reply: (err: <nil>), *kvpb.EndTxnResponse, #encountered intents: 0, #acquired locks: 0, #resolved locks: 0#updated txns: 0 #end txns: 0, PopulateBarrierResponse:false GossipFirstRange:false MaybeGossipSystemConfig:false MaybeGossipSystemConfigIfHaveFailure:false MaybeAddToSplitQueue:false MaybeGossipNodeLiveness:<nil> 	[n2,s2,r70/3:/Table/106{-/1/2001},raft]	kv/kvserver/replica_application_state_machine.go:178	local proposal	49
+2026-07-22 09:17:13.040278+00	00:00:00.017301	node sending response	[n2]	server/node.go:1696	/cockroach.roachpb.Internal/Batch	47
+2026-07-22 09:17:13.040662+00	00:00:00.017686	received batch response	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/transport.go:210	dist sender send	45
+2026-07-22 09:17:13.041833+00	00:00:00.018857	"making txn commit explicit: ""sql txn"" meta={id=da3add62 key=/Table/106/1/1/0 iso=Serializable pri=0.03380040 epo=0 ts=1784711833.023177787,0 min=1784711833.023177787,0 seq=3} lock=true stat=STAGING rts=1784711833.023177787,0 wto=false gul=1784711833.523177787,0 int=2 ifw=2"	[n1,client=127.0.0.1:42442,hostnossl,user=root,txn=da3add62]	kv/kvclient/kvcoord/txn_interceptor_committer.go:487	txn coordinator send	44
+2026-07-22 09:17:13.041928+00	00:00:00.018952	releasing 3 descriptors	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/descs/leased_descriptors.go:352	session recording	0
+2026-07-22 09:17:13.041945+00	00:00:00.018969	"release: 104(""seminar2"",0101807c92247072c448e99cd42f93131ace90) ver=1:1784712090.890175246,0, refcount=0"	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/lease/descriptor_state.go:253	session recording	0
+2026-07-22 09:17:13.041963+00	00:00:00.018987	"release: 105(""public"",0101807c92247072c448e99cd42f93131ace90) ver=1:1784712071.773080775,0, refcount=0"	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/lease/descriptor_state.go:253	session recording	0
+2026-07-22 09:17:13.041974+00	00:00:00.018997	"release: 106(""accounts"",0101807c92247072c448e99cd42f93131ace90) ver=1:1784712067.146574794,0, refcount=0"	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/catalog/lease/descriptor_state.go:253	session recording	0
+2026-07-22 09:17:13.042016+00	00:00:00.01904	[NoTxn pos:9] executing Sync	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor.go:2295	session recording	0
+2026-07-22 09:17:13.04221+00	00:00:00.019233	[NoTxn pos:10] executing ExecStmt: SET TRACING = off	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor.go:2295	session recording	0
+2026-07-22 09:17:13.042236+00	00:00:00.01926	executing: SET TRACING = off in state: NoTxn	[n1,client=127.0.0.1:42442,hostnossl,user=root]	sql/conn_executor_exec.go:106	session recording	0

@@ -1,0 +1,21 @@
+_elapsed___errors__ops/sec(inst)___ops/sec(cum)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)
+   10.0s        0          259.5          259.6     14.7     31.5     75.5    226.5 write
+_elapsed___errors__ops/sec(inst)___ops/sec(cum)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)
+   10.0s        0          279.0          279.0     27.3     35.7    142.6    201.3 write
+   20.0s        0          266.9          273.0     29.4     35.7    125.8    226.5 write
+   30.0s        0          252.1          266.0     30.4     39.8    121.6    192.9 write
+   40.0s        0          250.2          262.0     30.4     35.7    142.6    209.7 write
+   50.0s        0          262.3          262.1     29.4     35.7    142.6    209.7 write
+   60.0s        0          247.2          259.6     31.5     37.7    134.2    192.9 write
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__total
+   60.0s        0          15577          259.6     30.8     29.4     35.7    142.6    226.5  write
+
+_elapsed___errors_____ops(total)___ops/sec(cum)__avg(ms)__p50(ms)__p95(ms)__p99(ms)_pMax(ms)__result
+   60.0s        0          15577          259.6     30.8     29.4     35.7    142.6    226.5  
+Write sequence could be resumed by passing --write-seq=R0 to the next run.
+
+--- STDERR ---
+I260723 10:02:51.695114 1 workload/cli/run.go:665  [-] 1  random seed: -4165901264679948370
+I260723 10:02:51.695194 1 workload/cli/run.go:476  [-] 2  creating load generator...
+I260723 10:02:51.697065 1 workload/cli/run.go:515  [-] 3  creating load generator... done (took 1.871169ms)

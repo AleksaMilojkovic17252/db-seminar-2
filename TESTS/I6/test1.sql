@@ -1,0 +1,6 @@
+-- [a]
+BEGIN TRANSACTION ISOLATION LEVEL READ COMMITTED AS OF SYSTEM TIME '-10s';
+SHOW transaction_isolation;
+SELECT balance FROM accounts WHERE id = 1;
+COMMIT;
+

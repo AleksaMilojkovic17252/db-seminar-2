@@ -1,0 +1,14 @@
+"column_name","data_type","is_nullable","column_default","generation_expression","indices","is_hidden"
+id,UUID,true,,"",{},false
+node_id,INT8,true,,"",{},false
+session_id,STRING,true,,"",{},false
+start,TIMESTAMP,true,,"",{},false
+txn_string,STRING,true,,"",{},false
+application_name,STRING,true,,"",{},false
+num_stmts,INT8,true,,"",{},false
+num_retries,INT8,true,,"",{},false
+num_auto_retries,INT8,true,,"",{},false
+last_auto_retry_reason,STRING,true,,"",{},false
+isolation_level,STRING,true,,"",{},false
+priority,STRING,true,,"",{},false
+quality_of_service,STRING,true,,"",{},false

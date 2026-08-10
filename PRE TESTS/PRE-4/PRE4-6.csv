@@ -1,0 +1,5 @@
+"column_name","data_type","is_nullable","column_default","generation_expression","indices","is_hidden"
+database_name,STRING,true,,"",{},false
+schema_name,STRING,true,,"",{},false
+table_name,STRING,true,,"",{},false
+num_contention_events,INT8,true,,"",{},false

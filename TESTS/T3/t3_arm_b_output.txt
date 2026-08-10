@@ -1,0 +1,112 @@
+=== BEFORE ===
+--- port 26257 ---
+name	value
+txn.commits	131325
+txn.commits1PC	5620
+txn.parallelcommits	2423
+--- port 26258 ---
+name	value
+txn.commits	95418
+txn.commits1PC	5549
+txn.parallelcommits	929
+--- port 26259 ---
+name	value
+txn.commits	69934
+txn.commits1PC	5526
+txn.parallelcommits	600
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+=== AFTER ===
+--- port 26257 ---
+name	value
+txn.commits	131372
+txn.commits1PC	5623
+txn.parallelcommits	2443
+--- port 26258 ---
+name	value
+txn.commits	95445
+txn.commits1PC	5551
+txn.parallelcommits	929
+--- port 26259 ---
+name	value
+txn.commits	69946
+txn.commits1PC	5528
+txn.parallelcommits	600

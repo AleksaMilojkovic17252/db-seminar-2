@@ -1,0 +1,16 @@
+"column_name","data_type","is_nullable","column_default","generation_expression","indices","is_hidden"
+collection_ts,TIMESTAMPTZ,false,,"",{},false
+blocking_txn_id,UUID,false,,"",{},false
+blocking_txn_fingerprint_id,BYTES,false,,"",{},false
+waiting_txn_id,UUID,false,,"",{},false
+waiting_txn_fingerprint_id,BYTES,false,,"",{},false
+contention_duration,INTERVAL,false,,"",{},false
+contending_key,BYTES,false,,"",{},false
+contending_pretty_key,STRING,false,,"",{},false
+waiting_stmt_id,STRING,false,,"",{},false
+waiting_stmt_fingerprint_id,BYTES,false,,"",{},false
+database_name,STRING,false,,"",{},false
+schema_name,STRING,false,,"",{},false
+table_name,STRING,false,,"",{},false
+index_name,STRING,true,,"",{},false
+contention_type,STRING,false,,"",{},false

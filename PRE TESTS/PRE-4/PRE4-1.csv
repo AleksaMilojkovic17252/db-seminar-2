@@ -1,0 +1,17 @@
+"column_name","data_type","is_nullable","column_default","generation_expression","indices","is_hidden"
+range_id,INT8,false,,"",{},false
+table_id,INT8,false,,"",{},false
+database_name,STRING,false,,"",{},false
+schema_name,STRING,false,,"",{},false
+table_name,STRING,false,,"",{},false
+index_name,STRING,true,,"",{},false
+lock_key,BYTES,false,,"",{},false
+lock_key_pretty,STRING,false,,"",{},false
+txn_id,UUID,true,,"",{},false
+ts,TIMESTAMP,true,,"",{},false
+lock_strength,STRING,true,,"",{},false
+durability,STRING,true,,"",{},false
+granted,BOOL,true,,"",{},false
+contended,BOOL,false,,"",{},false
+duration,INTERVAL,true,,"",{},false
+isolation_level,STRING,true,,"",{},false

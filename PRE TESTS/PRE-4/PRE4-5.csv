@@ -1,0 +1,4 @@
+"column_name","data_type","is_nullable","column_default","generation_expression","indices","is_hidden"
+store_id,INT8,true,,"",{},false
+name,STRING,false,,"",{},false
+value,FLOAT8,false,,"",{},false

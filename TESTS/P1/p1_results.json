@@ -1,0 +1,198 @@
+[
+  {
+    "cycle": 1,
+    "conc": 1,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle1_conc1.log"
+  },
+  {
+    "cycle": 1,
+    "conc": 2,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle1_conc2.log"
+  },
+  {
+    "cycle": 1,
+    "conc": 4,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle1_conc4.log"
+  },
+  {
+    "cycle": 1,
+    "conc": 8,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle1_conc8.log"
+  },
+  {
+    "cycle": 1,
+    "conc": 16,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle1_conc16.log"
+  },
+  {
+    "cycle": 1,
+    "conc": 32,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle1_conc32.log"
+  },
+  {
+    "cycle": 1,
+    "conc": 64,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle1_conc64.log"
+  },
+  {
+    "cycle": 10,
+    "conc": 1,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle10_conc1.log"
+  },
+  {
+    "cycle": 10,
+    "conc": 2,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle10_conc2.log"
+  },
+  {
+    "cycle": 10,
+    "conc": 4,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle10_conc4.log"
+  },
+  {
+    "cycle": 10,
+    "conc": 8,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle10_conc8.log"
+  },
+  {
+    "cycle": 10,
+    "conc": 16,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle10_conc16.log"
+  },
+  {
+    "cycle": 10,
+    "conc": 32,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle10_conc32.log"
+  },
+  {
+    "cycle": 10,
+    "conc": 64,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle10_conc64.log"
+  },
+  {
+    "cycle": 100,
+    "conc": 1,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle100_conc1.log"
+  },
+  {
+    "cycle": 100,
+    "conc": 2,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle100_conc2.log"
+  },
+  {
+    "cycle": 100,
+    "conc": 4,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle100_conc4.log"
+  },
+  {
+    "cycle": 100,
+    "conc": 8,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle100_conc8.log"
+  },
+  {
+    "cycle": 100,
+    "conc": 16,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle100_conc16.log"
+  },
+  {
+    "cycle": 100,
+    "conc": 32,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle100_conc32.log"
+  },
+  {
+    "cycle": 100,
+    "conc": 64,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle100_conc64.log"
+  },
+  {
+    "cycle": 100000,
+    "conc": 1,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle100000_conc1.log"
+  },
+  {
+    "cycle": 100000,
+    "conc": 2,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle100000_conc2.log"
+  },
+  {
+    "cycle": 100000,
+    "conc": 4,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle100000_conc4.log"
+  },
+  {
+    "cycle": 100000,
+    "conc": 8,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle100000_conc8.log"
+  },
+  {
+    "cycle": 100000,
+    "conc": 16,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle100000_conc16.log"
+  },
+  {
+    "cycle": 100000,
+    "conc": 32,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle100000_conc32.log"
+  },
+  {
+    "cycle": 100000,
+    "conc": 64,
+    "wall_s": 70.2,
+    "restart_deltas": {},
+    "log_file": "cycle100000_conc64.log"
+  }
+]

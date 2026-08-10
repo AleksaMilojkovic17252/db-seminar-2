@@ -1,0 +1,256 @@
+SET TRACING
+BEGIN
+UPDATE 1
+UPDATE 1
+COMMIT
+SET TRACING
+span_idx	message_idx	operation	tag	message
+0	0	session recording		=== SPAN START: session recording ===
+0	1	session recording	[n1,client=127.0.0.1:54930,hostnossl,user=root]	[NoTxn pos:1] executing Sync
+0	2	session recording	[n1,client=127.0.0.1:54930,hostnossl,user=root]	[NoTxn pos:2] executing ExecStmt: BEGIN TRANSACTION
+0	3	session recording	[n1,client=127.0.0.1:54930,hostnossl,user=root]	executing: BEGIN TRANSACTION in state: NoTxn
+0	4	session recording	[n1,client=127.0.0.1:54930,hostnossl,user=root]	releasing 3 descriptors
+0	5	session recording	[n1,client=127.0.0.1:54930,hostnossl,user=root]	"release: 104(""seminar2"",0101807c92247072c448e99cd42f93131ace90) ver=1:1784712090.890175246,0, refcount=0"
+0	6	session recording	[n1,client=127.0.0.1:54930,hostnossl,user=root]	"release: 105(""public"",0101807c92247072c448e99cd42f93131ace90) ver=1:1784712071.773080775,0, refcount=0"
+0	7	session recording	[n1,client=127.0.0.1:54930,hostnossl,user=root]	"release: 106(""accounts"",0101807c92247072c448e99cd42f93131ace90) ver=1:1784712067.146574794,0, refcount=0"
+0	8	session recording	[n1,client=127.0.0.1:54930,hostnossl,user=root]	[NoTxn pos:9] executing Sync
+0	9	session recording	[n1,client=127.0.0.1:54930,hostnossl,user=root]	[NoTxn pos:10] executing ExecStmt: SET TRACING = off
+0	10	session recording	[n1,client=127.0.0.1:54930,hostnossl,user=root]	executing: SET TRACING = off in state: NoTxn
+1	0	sql txn		=== SPAN START: sql txn ===
+1	1	sql txn	[n1,client=127.0.0.1:54930,hostnossl,user=root]	[Open pos:3] executing Sync
+1	2	sql txn	[n1,client=127.0.0.1:54930,hostnossl,user=root]	[Open pos:4] executing ExecStmt: UPDATE accounts SET balance = balance - 100 WHERE id = 1
+1	3	sql txn	[n1,client=127.0.0.1:54930,hostnossl,user=root]	executing: UPDATE accounts SET balance = balance - 100 WHERE id = 1 in state: Open
+1	4	sql txn	[n1,client=127.0.0.1:54930,hostnossl,user=root]	[Open pos:5] executing Sync
+1	5	sql txn	[n1,client=127.0.0.1:54930,hostnossl,user=root]	[Open pos:6] executing ExecStmt: UPDATE accounts SET balance = balance + 100 WHERE id = 9000
+1	6	sql txn	[n1,client=127.0.0.1:54930,hostnossl,user=root]	executing: UPDATE accounts SET balance = balance + 100 WHERE id = 9000 in state: Open
+1	7	sql txn	[n1,client=127.0.0.1:54930,hostnossl,user=root]	[Open pos:7] executing Sync
+1	8	sql txn	[n1,client=127.0.0.1:54930,hostnossl,user=root]	[Open pos:8] executing ExecStmt: COMMIT TRANSACTION
+1	9	sql txn	[n1,client=127.0.0.1:54930,hostnossl,user=root]	executing: COMMIT TRANSACTION in state: Open
+2	0	sql query		=== SPAN START: sql query ===
+2	1	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	planning starts: UPDATE
+2	2	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	planning ends
+2	3	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	checking distributability
+2	4	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	query not supported for distSQL: unsupported node
+2	5	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	will distribute plan: false
+2	6	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	executing after 0 retries, last retry reason: <nil>
+2	7	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	execution starts: distributed engine
+2	8	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	creating DistSQL plan with isLocal=true
+2	9	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	running DistSQL plan
+2	10	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	execution ends
+2	11	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	rows affected: 1
+3	0	optimizer		=== SPAN START: optimizer ===
+3	1	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	query cache hit but needed update
+3	2	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	optbuilder start
+3	3	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	"descriptorVersionState.incRefCount: 104(""seminar2"",0101807c92247072c448e99cd42f93131ace90) ver=1:1784711694.398876217,0, refcount=1"
+3	4	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	looking up descriptors for ids [104]
+3	5	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	looking up descriptors for ids [104]
+3	6	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	looking up descriptors for ids [104]
+3	7	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	looking up descriptors for ids [104]
+3	8	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	looking up descriptors for ids [105]
+3	9	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	"descriptorVersionState.incRefCount: 105(""public"",0101807c92247072c448e99cd42f93131ace90) ver=1:1784711697.302637916,0, refcount=1"
+3	10	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	"descriptorVersionState.incRefCount: 106(""accounts"",0101807c92247072c448e99cd42f93131ace90) ver=1:1784711688.012641953,0, refcount=1"
+3	11	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	looking up descriptors for ids [106]
+3	12	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	optbuilder finish
+3	13	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	optimizing (no placeholders)
+3	14	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	optimize start
+3	15	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	optimize finish
+4	0	consuming rows		=== SPAN START: consuming rows ===
+5	0	flow		=== SPAN START: flow ===
+5	1	flow	[n1,client=127.0.0.1:54930,hostnossl,user=root]	setting up vectorized flow
+5	2	flow	[n1,client=127.0.0.1:54930,hostnossl,user=root]	"planning a row-execution processor in the vectorized flow: unable to columnarize render expression ""crdb_internal.assignment_cast(@3 - 100, NULL::DECIMAL(15,2))"": builtins with FnWithExprs are not supported in the vectorized engine"
+5	3	flow	[n1,client=127.0.0.1:54930,hostnossl,user=root]	planning a row-execution processor in the vectorized flow: LocalPlanNode core needs to be wrapped
+5	4	flow	[n1,client=127.0.0.1:54930,hostnossl,user=root]	vectorized flow setup succeeded
+5	5	flow	[n1,client=127.0.0.1:54930,hostnossl,user=root]	starting (0 processors, 0 startables) asynchronously
+5	6	flow	[n1,client=127.0.0.1:54930,hostnossl,user=root]	running the batch flow coordinator in the flow's goroutine
+5	7	flow		ComponentStats{ID: {4fddfd4c-c61f-456c-a3e5-fd32e3a2187f FLOW 0 1 eu-west-1}}
+6	0	batch flow coordinator		=== SPAN START: batch flow coordinator ===
+6	1	batch flow coordinator		ComponentStats{ID: {4fddfd4c-c61f-456c-a3e5-fd32e3a2187f PROCESSOR 1 1 }, execution time: 1ms, sql cpu time: 380µs, batches output: 1, rows output: 1}
+7	0	columnarizer		=== SPAN START: columnarizer ===
+8	0	count		=== SPAN START: count ===
+8	1	count	[n1,client=127.0.0.1:54930,hostnossl,user=root]	writing batch with 1 requests
+8	2	count	[n1,client=127.0.0.1:54930,hostnossl,user=root]	fast path completed
+9	0	materializer		=== SPAN START: materializer ===
+9	1	materializer		ComponentStats{ID: {4fddfd4c-c61f-456c-a3e5-fd32e3a2187f PROCESSOR 0 1 }, input rows: 1, input stall time: 1ms, KV nodes: n2, KV regions: us-east-1, KV time: 1ms, KV contention time: 0µs, KV rows decoded: 1, KV bytes read: 46 B, KV gRPC calls: 1, KV pairs read: 1, MVCC step count (ext/int): 0/0, MVCC seek count (ext/int): 2/2, max memory allocated: 20 KiB, sql cpu time: 80µs, batches output: 1, rows output: 1}
+10	0	columnarizer		=== SPAN START: columnarizer ===
+11	0	noop		=== SPAN START: noop ===
+12	0	materializer		=== SPAN START: materializer ===
+13	0	colbatchscan		=== SPAN START: colbatchscan ===
+13	1	colbatchscan	[n1,client=127.0.0.1:54930,hostnossl,user=root]	Scan /Table/106/1/1/0 lock Exclusive (Block, Unreplicated)
+13	2	colbatchscan	[n1,client=127.0.0.1:54930,hostnossl,user=root]	kv fetcher: sending a batch with 1 requests
+14	0	txn coordinator send		=== SPAN START: txn coordinator send ===
+14	1	txn coordinator send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	coordinator spawns heartbeat loop
+14	2	txn coordinator send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	recording span to refresh: /Table/106/1/1/0
+15	0	dist sender send		=== SPAN START: dist sender send ===
+15	1	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	querying next range at /Table/106/1/1/0
+15	2	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	key: /Table/106/1/1/0, desc: r70:/Table/106{-/1/2001} [(n1,s1):1, (n3,s3):2, (n2,s2):3, next=4, gen=9]
+15	3	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	r70: sending batch 1 Get to (n2,s2):3
+15	4	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	sending request to localhost:26258
+15	5	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	sending batch request
+15	6	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	received batch response
+16	0	/cockroach.roachpb.Internal/Batch		=== SPAN START: /cockroach.roachpb.Internal/Batch ===
+17	0	/cockroach.roachpb.Internal/Batch		=== SPAN START: /cockroach.roachpb.Internal/Batch ===
+17	1	/cockroach.roachpb.Internal/Batch	[n2]	node received request: 1 Get
+17	2	/cockroach.roachpb.Internal/Batch	[n2,s2]	executing Get(Exclusive,Unreplicated) [/Table/106/1/1/0], [txn: 7181a224], [can-forward-ts], [max_span_request_keys: 0], [target_bytes: 10485760]
+17	3	/cockroach.roachpb.Internal/Batch	[n2,s2,r70/3:/Table/106{-/1/2001}]	read-only path
+17	4	/cockroach.roachpb.Internal/Batch	[n2,s2,r70/3:/Table/106{-/1/2001}]	sequencing request
+17	5	/cockroach.roachpb.Internal/Batch	[n2,s2,r70/3:/Table/106{-/1/2001}]	acquiring latches
+17	6	/cockroach.roachpb.Internal/Batch	[n2,s2,r70/3:/Table/106{-/1/2001}]	scanning lock table for conflicting locks
+17	7	/cockroach.roachpb.Internal/Batch	[n2,s2,r70/3:/Table/106{-/1/2001}]	executing read-only batch
+17	8	/cockroach.roachpb.Internal/Batch	[n2,s2,r70/3:/Table/106{-/1/2001}]	"evaluated Get command header:<kvnemesis_seq:<> key:""\362\211\211\210"" > key_locking_strength:Exclusive , txn=""sql txn"" meta={id=7181a224 key=/Table/106/1/1/0 iso=Serializable pri=0.00577280 epo=0 ts=1784711776.454323211,0 min=1784711776.454323211,0 seq=0} lock=true stat=PENDING rts=1784711776.454323211,0 wto=false gul=1784711776.954323211,0 : resp=header:<num_keys:1 num_bytes:42 > value:<raw_bytes:""S\305\177\326\n&\006user_1\025\0054\214\017\0330\026\teu-west-1\030\210\277\203\246\r\360\204\306\224\001"" timestamp:<wall_time:1784711404939321868 logical:2 > > , err=<nil>"
+17	9	/cockroach.roachpb.Internal/Batch		n2 scan stats: stepped 0 times (0 internal); seeked 2 times (2 internal); block-bytes: (total 49 KiB, cached 0 B, duration 9.082µs); points: (count 1, key-bytes 18 B, value-bytes 61 B, tombstoned: 0) ranges: (count 0), (contained-points 0, skipped-points 0) evaluated requests: 1 gets, 0 scans, 0 reverse scans
+17	10	/cockroach.roachpb.Internal/Batch	[n2,s2,r70/3:/Table/106{-/1/2001}]	acquiring 1 unreplicated locks
+17	11	/cockroach.roachpb.Internal/Batch	[n2,s2,r70/3:/Table/106{-/1/2001}]	read completed
+17	12	/cockroach.roachpb.Internal/Batch	[n2]	node sending response
+18	0	txn coordinator send		=== SPAN START: txn coordinator send ===
+19	0	dist sender send		=== SPAN START: dist sender send ===
+19	1	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	querying next range at /Table/106/1/1/0
+19	2	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	key: /Table/106/1/1/0, desc: r70:/Table/106{-/1/2001} [(n1,s1):1, (n3,s3):2, (n2,s2):3, next=4, gen=9]
+19	3	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	r70: sending batch 1 Put to (n2,s2):3
+19	4	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	sending request to localhost:26258
+19	5	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	sending batch request
+19	6	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	received batch response
+20	0	/cockroach.roachpb.Internal/Batch		=== SPAN START: /cockroach.roachpb.Internal/Batch ===
+21	0	/cockroach.roachpb.Internal/Batch		=== SPAN START: /cockroach.roachpb.Internal/Batch ===
+21	1	/cockroach.roachpb.Internal/Batch	[n2]	node received request: 1 Put
+21	2	/cockroach.roachpb.Internal/Batch	[n2]	r70/3 bypassed request (pri=normal-pri)
+21	3	/cockroach.roachpb.Internal/Batch	[n2,s2]	executing Put [/Table/106/1/1/0], [txn: 7181a224]
+21	4	/cockroach.roachpb.Internal/Batch	[n2,s2,r70/3:/Table/106{-/1/2001}]	read-write path
+21	5	/cockroach.roachpb.Internal/Batch	[n2,s2,r70/3:/Table/106{-/1/2001}]	sequencing request
+21	6	/cockroach.roachpb.Internal/Batch	[n2,s2,r70/3:/Table/106{-/1/2001}]	acquiring latches
+21	7	/cockroach.roachpb.Internal/Batch	[n2,s2,r70/3:/Table/106{-/1/2001}]	scanning lock table for conflicting locks
+21	8	/cockroach.roachpb.Internal/Batch	[n2]	node sending response
+22	0	executeWriteBatch		=== SPAN START: executeWriteBatch ===
+22	1	executeWriteBatch	[n2,s2,r70/3:/Table/106{-/1/2001}]	applied timestamp cache
+22	2	executeWriteBatch	[n2,s2,r70/3:/Table/106{-/1/2001}]	executing read-write batch
+22	3	executeWriteBatch	[n2,s2,r70/3:/Table/106{-/1/2001}]	"evaluated Put command header:<kvnemesis_seq:<> key:""\362\211\211\210"" sequence:1 > value:<raw_bytes:""\201\232\223\370\n&\006user_1\025\0054\214\016\364 \026\teu-west-1\030\210\277\203\246\r\360\204\306\224\001"" timestamp:<> > , txn=""sql txn"" meta={id=7181a224 key=/Table/106/1/1/0 iso=Serializable pri=0.00577280 epo=0 ts=1784711776.454323211,0 min=1784711776.454323211,0 seq=1} lock=true stat=PENDING rts=1784711776.454323211,0 wto=false gul=1784711776.954323211,0 : resp=header:<> , err=<nil>"
+22	4	executeWriteBatch	[n2,s2,r70/3:/Table/106{-/1/2001}]	need consensus on write batch with op count=2
+22	5	executeWriteBatch	[n2,s2,r70/3:/Table/106{-/1/2001}]	evaluated request
+22	6	executeWriteBatch	[n2,s2,r70/3:/Table/106{-/1/2001}]	proposing command to write 0 new keys, 1 new values, 1 new intents, write batch size=186 bytes
+23	0	sql query		=== SPAN START: sql query ===
+23	1	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	planning starts: UPDATE
+23	2	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	planning ends
+23	3	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	checking distributability
+23	4	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	query not supported for distSQL: unsupported node
+23	5	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	will distribute plan: false
+23	6	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	executing after 0 retries, last retry reason: <nil>
+23	7	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	execution starts: distributed engine
+23	8	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	creating DistSQL plan with isLocal=true
+23	9	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	running DistSQL plan
+23	10	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	execution ends
+23	11	sql query	[n1,client=127.0.0.1:54930,hostnossl,user=root]	rows affected: 1
+24	0	optimizer		=== SPAN START: optimizer ===
+24	1	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	query cache hit but needed update
+24	2	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	optbuilder start
+24	3	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	looking up descriptors for ids [104]
+24	4	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	looking up descriptors for ids [104]
+24	5	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	looking up descriptors for ids [104]
+24	6	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	looking up descriptors for ids [104]
+24	7	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	looking up descriptors for ids [105]
+24	8	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	looking up descriptors for ids [106]
+24	9	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	optbuilder finish
+24	10	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	optimizing (no placeholders)
+24	11	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	optimize start
+24	12	optimizer	[n1,client=127.0.0.1:54930,hostnossl,user=root]	optimize finish
+25	0	consuming rows		=== SPAN START: consuming rows ===
+26	0	flow		=== SPAN START: flow ===
+26	1	flow	[n1,client=127.0.0.1:54930,hostnossl,user=root]	setting up vectorized flow
+26	2	flow	[n1,client=127.0.0.1:54930,hostnossl,user=root]	"planning a row-execution processor in the vectorized flow: unable to columnarize render expression ""crdb_internal.assignment_cast(@3 + 100, NULL::DECIMAL(15,2))"": builtins with FnWithExprs are not supported in the vectorized engine"
+26	3	flow	[n1,client=127.0.0.1:54930,hostnossl,user=root]	planning a row-execution processor in the vectorized flow: LocalPlanNode core needs to be wrapped
+26	4	flow	[n1,client=127.0.0.1:54930,hostnossl,user=root]	vectorized flow setup succeeded
+26	5	flow	[n1,client=127.0.0.1:54930,hostnossl,user=root]	starting (0 processors, 0 startables) asynchronously
+26	6	flow	[n1,client=127.0.0.1:54930,hostnossl,user=root]	running the batch flow coordinator in the flow's goroutine
+26	7	flow		ComponentStats{ID: {910252e1-08c3-4cc8-87fc-d64b1af390ed FLOW 0 1 eu-west-1}}
+27	0	batch flow coordinator		=== SPAN START: batch flow coordinator ===
+27	1	batch flow coordinator		ComponentStats{ID: {910252e1-08c3-4cc8-87fc-d64b1af390ed PROCESSOR 1 1 }, execution time: 984µs, sql cpu time: 851µs, batches output: 1, rows output: 1}
+28	0	columnarizer		=== SPAN START: columnarizer ===
+29	0	count		=== SPAN START: count ===
+29	1	count	[n1,client=127.0.0.1:54930,hostnossl,user=root]	writing batch with 1 requests
+29	2	count	[n1,client=127.0.0.1:54930,hostnossl,user=root]	fast path completed
+30	0	materializer		=== SPAN START: materializer ===
+30	1	materializer		ComponentStats{ID: {910252e1-08c3-4cc8-87fc-d64b1af390ed PROCESSOR 0 1 }, input rows: 1, input stall time: 1ms, KV nodes: n1, KV regions: eu-west-1, KV time: 1ms, KV contention time: 0µs, KV rows decoded: 1, KV bytes read: 51 B, KV gRPC calls: 1, KV pairs read: 1, MVCC step count (ext/int): 0/0, MVCC seek count (ext/int): 2/2, max memory allocated: 20 KiB, sql cpu time: 61µs, batches output: 1, rows output: 1}
+31	0	columnarizer		=== SPAN START: columnarizer ===
+32	0	noop		=== SPAN START: noop ===
+33	0	materializer		=== SPAN START: materializer ===
+34	0	colbatchscan		=== SPAN START: colbatchscan ===
+34	1	colbatchscan	[n1,client=127.0.0.1:54930,hostnossl,user=root]	Scan /Table/106/1/9000/0 lock Exclusive (Block, Unreplicated)
+34	2	colbatchscan	[n1,client=127.0.0.1:54930,hostnossl,user=root]	kv fetcher: sending a batch with 1 requests
+35	0	txn coordinator send		=== SPAN START: txn coordinator send ===
+35	1	txn coordinator send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	recording span to refresh: /Table/106/1/9000/0
+36	0	dist sender send		=== SPAN START: dist sender send ===
+36	1	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	querying next range at /Table/106/1/9000/0
+36	2	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	key: /Table/106/1/9000/0, desc: r74:/Table/1{06/1/8001-10/1/2} [(n1,s1):1, (n3,s3):2, (n2,s2):3, next=4, gen=13, sticky=9223372036.854775807,2147483647]
+36	3	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	r74: sending batch 1 Get to (n1,s1):1
+36	4	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	sending request to local client
+36	5	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	sending batch request
+36	6	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	received batch response
+37	0	/cockroach.roachpb.Internal/Batch		=== SPAN START: /cockroach.roachpb.Internal/Batch ===
+37	1	/cockroach.roachpb.Internal/Batch	[n1]	node received request: 1 Get
+37	2	/cockroach.roachpb.Internal/Batch	[n1,s1]	executing Get(Exclusive,Unreplicated) [/Table/106/1/9000/0], [txn: 7181a224], [max_span_request_keys: 0], [target_bytes: 10485760]
+37	3	/cockroach.roachpb.Internal/Batch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	read-only path
+37	4	/cockroach.roachpb.Internal/Batch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	sequencing request
+37	5	/cockroach.roachpb.Internal/Batch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	acquiring latches
+37	6	/cockroach.roachpb.Internal/Batch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	scanning lock table for conflicting locks
+37	7	/cockroach.roachpb.Internal/Batch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	executing read-only batch
+37	8	/cockroach.roachpb.Internal/Batch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	"evaluated Get command header:<kvnemesis_seq:<> key:""\362\211\367#(\210"" sequence:1 > key_locking_strength:Exclusive , txn=""sql txn"" meta={id=7181a224 key=/Table/106/1/1/0 iso=Serializable pri=0.00577280 epo=0 ts=1784711776.454323211,0 min=1784711776.454323211,0 seq=1} lock=true stat=PENDING rts=1784711776.454323211,0 wto=false gul=1784711776.954323211,0 : resp=header:<num_keys:1 num_bytes:45 > value:<raw_bytes:""Gs\234#\n&\tuser_9000\025\0054\215\017iP\026\tus-west-1\030\210\277\203\246\r\360\204\306\224\001"" timestamp:<wall_time:1784711404939321868 logical:2 > > , err=<nil>"
+37	9	/cockroach.roachpb.Internal/Batch		n1 scan stats: stepped 0 times (0 internal); seeked 2 times (2 internal); block-bytes: (total 47 KiB, cached 0 B, duration 9.307µs); points: (count 1, key-bytes 20 B, value-bytes 45 B, tombstoned: 0) ranges: (count 0), (contained-points 0, skipped-points 0) evaluated requests: 1 gets, 0 scans, 0 reverse scans separated: (count: 1, bytes: 70 B, bytes-fetched: 0 B)
+37	10	/cockroach.roachpb.Internal/Batch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	acquiring 1 unreplicated locks
+37	11	/cockroach.roachpb.Internal/Batch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	read completed
+37	12	/cockroach.roachpb.Internal/Batch	[n1]	node sending response
+38	0	txn coordinator send		=== SPAN START: txn coordinator send ===
+39	0	dist sender send		=== SPAN START: dist sender send ===
+39	1	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	querying next range at /Table/106/1/9000/0
+39	2	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	key: /Table/106/1/9000/0, desc: r74:/Table/1{06/1/8001-10/1/2} [(n1,s1):1, (n3,s3):2, (n2,s2):3, next=4, gen=13, sticky=9223372036.854775807,2147483647]
+39	3	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	r74: sending batch 1 Put to (n1,s1):1
+39	4	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	sending request to local client
+39	5	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	sending batch request
+39	6	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	received batch response
+40	0	/cockroach.roachpb.Internal/Batch		=== SPAN START: /cockroach.roachpb.Internal/Batch ===
+40	1	/cockroach.roachpb.Internal/Batch	[n1]	node received request: 1 Put
+40	2	/cockroach.roachpb.Internal/Batch	[n1]	r74/1 bypassed request (pri=locking-normal-pri)
+40	3	/cockroach.roachpb.Internal/Batch	[n1,s1]	executing Put [/Table/106/1/9000/0], [txn: 7181a224]
+40	4	/cockroach.roachpb.Internal/Batch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	read-write path
+40	5	/cockroach.roachpb.Internal/Batch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	sequencing request
+40	6	/cockroach.roachpb.Internal/Batch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	acquiring latches
+40	7	/cockroach.roachpb.Internal/Batch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	scanning lock table for conflicting locks
+40	8	/cockroach.roachpb.Internal/Batch	[n1]	node sending response
+41	0	executeWriteBatch		=== SPAN START: executeWriteBatch ===
+41	1	executeWriteBatch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	applied timestamp cache
+41	2	executeWriteBatch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	executing read-write batch
+41	3	executeWriteBatch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	"evaluated Put command header:<kvnemesis_seq:<> key:""\362\211\367#(\210"" sequence:2 > value:<raw_bytes:""\375\024\301\366\n&\tuser_9000\025\0054\215\017\220`\026\tus-west-1\030\210\277\203\246\r\360\204\306\224\001"" timestamp:<> > , txn=""sql txn"" meta={id=7181a224 key=/Table/106/1/1/0 iso=Serializable pri=0.00577280 epo=0 ts=1784711776.454323211,0 min=1784711776.454323211,0 seq=2} lock=true stat=PENDING rts=1784711776.454323211,0 wto=false gul=1784711776.954323211,0 : resp=header:<> , err=<nil>"
+41	4	executeWriteBatch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	need consensus on write batch with op count=2
+41	5	executeWriteBatch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	evaluated request
+41	6	executeWriteBatch	[n1,s1,r74/1:/Table/1{06/1/8001-10/1/2}]	proposing command to write 0 new keys, 1 new values, 1 new intents, write batch size=193 bytes
+42	0	sql query		=== SPAN START: sql query ===
+43	0	commit sql txn		=== SPAN START: commit sql txn ===
+44	0	txn coordinator send		=== SPAN START: txn coordinator send ===
+44	1	txn coordinator send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	"making txn commit explicit: ""sql txn"" meta={id=7181a224 key=/Table/106/1/1/0 iso=Serializable pri=0.00577280 epo=0 ts=1784711776.454323211,0 min=1784711776.454323211,0 seq=3} lock=true stat=STAGING rts=1784711776.454323211,0 wto=false gul=1784711776.954323211,0 int=2 ifw=2"
+45	0	dist sender send		=== SPAN START: dist sender send ===
+45	1	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	querying next range at /Table/106/1/1/0
+45	2	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	key: /Table/106/1/1/0, desc: r70:/Table/106{-/1/2001} [(n1,s1):1, (n3,s3):2, (n2,s2):3, next=4, gen=9]
+45	3	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	r70: sending batch 1 EndTxn to (n2,s2):3
+45	4	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	sending request to localhost:26258
+45	5	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	sending batch request
+45	6	dist sender send	[n1,client=127.0.0.1:54930,hostnossl,user=root,txn=7181a224]	received batch response
+46	0	/cockroach.roachpb.Internal/Batch		=== SPAN START: /cockroach.roachpb.Internal/Batch ===
+47	0	/cockroach.roachpb.Internal/Batch		=== SPAN START: /cockroach.roachpb.Internal/Batch ===
+47	1	/cockroach.roachpb.Internal/Batch	[n2]	node received request: 1 EndTxn
+47	2	/cockroach.roachpb.Internal/Batch	[n2]	r70/3 bypassed request (pri=locking-normal-pri)
+47	3	/cockroach.roachpb.Internal/Batch	[n2,s2]	executing EndTxn(parallel commit) [/Table/106/1/1/0], [txn: 7181a224]
+47	4	/cockroach.roachpb.Internal/Batch	[n2,s2,r70/3:/Table/106{-/1/2001}]	read-write path
+47	5	/cockroach.roachpb.Internal/Batch	[n2,s2,r70/3:/Table/106{-/1/2001}]	sequencing request
+47	6	/cockroach.roachpb.Internal/Batch	[n2,s2,r70/3:/Table/106{-/1/2001}]	acquiring latches
+47	7	/cockroach.roachpb.Internal/Batch	[n2]	node sending response
+48	0	executeWriteBatch		=== SPAN START: executeWriteBatch ===
+48	1	executeWriteBatch	[n2,s2,r70/3:/Table/106{-/1/2001}]	applied timestamp cache
+48	2	executeWriteBatch	[n2,s2,r70/3:/Table/106{-/1/2001}]	executing read-write batch
+48	3	executeWriteBatch	[n2,s2,r70/3:/Table/106{-/1/2001}]	"evaluated EndTxn command header:<kvnemesis_seq:<> key:""\362\211\211\210"" sequence:3 > commit:true deadline:<wall_time:1784712067146574794 > lock_spans:<key:""\362\211\211\210"" > lock_spans:<key:""\362\211\367#(\210"" > in_flight_writes:<key:""\362\211\211\210"" sequence:1 strength:I..., txn=""sql txn"" meta={id=7181a224 key=/Table/106/1/1/0 iso=Serializable pri=0.00577280 epo=0 ts=1784711776.454323211,0 min=1784711776.454323211,0 seq=3} lock=true stat=PENDING rts=1784711776.454323211,0 wto=false gul=1784711776.954323211,0 : resp=header:<txn:<meta:<id:7181a224-513e-49a6-a259-a23515860669 key:""\362\211\211\210"" write_timestamp:<wall_time:1784711776454323211 > min_timestamp:<wall_time:1784711776454323211 > priority:123970 sequence:3 coordinator_node_id:1 > name:""sql txn"" status:ST..., err=<nil>"
+48	4	executeWriteBatch	[n2,s2,r70/3:/Table/106{-/1/2001}]	need consensus on write batch with op count=1
+48	5	executeWriteBatch	[n2,s2,r70/3:/Table/106{-/1/2001}]	evaluated request
+48	6	executeWriteBatch	[n2,s2,r70/3:/Table/106{-/1/2001}]	proposing command to write 0 new keys, 0 new values, 0 new intents, write batch size=186 bytes
+48	7	executeWriteBatch	[n2,s2,r70/3:/Table/106{-/1/2001}]	acquiring proposal quota (296 bytes)
+48	8	executeWriteBatch	[n2,s2,r70/3:/Table/106{-/1/2001}]	submitting proposal to proposal buffer
+48	9	executeWriteBatch	[n2,s2,r70/3:/Table/106{-/1/2001}]	flushing proposal to Raft
+48	10	executeWriteBatch	[n2,s2,r70/3:/Table/106{-/1/2001}]	too many active raft traces, skipping
+49	0	local proposal		=== SPAN START: local proposal ===
+49	1	local proposal	[n2,s2,r70/3:/Table/106{-/1/2001},raft]	applying command
+49	2	local proposal	[n2,s2,r70/3:/Table/106{-/1/2001},raft]	LocalResult (reply: (err: <nil>), *kvpb.EndTxnResponse, #encountered intents: 0, #acquired locks: 0, #resolved locks: 0#updated txns: 0 #end txns: 0, PopulateBarrierResponse:false GossipFirstRange:false MaybeGossipSystemConfig:false MaybeGossipSystemConfigIfHaveFailure:false MaybeAddToSplitQueue:false MaybeGossipNodeLiveness:<nil> 

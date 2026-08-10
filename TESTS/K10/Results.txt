@@ -1,0 +1,14 @@
+~/repos/db-seminar-2/TESTS/K10 main*
+crdb-venv ❯ python3 k10a.py
+{"reads": 500, "ryw_violations": 0, "mode": "strong"}
+
+~/repos/db-seminar-2/TESTS/K10 main*
+crdb-venv ❯ python3 k10b.py
+{"reads": 500, "ryw_broken": 499, "saw_own_write": 1, "mode": "follower_read"}
+
+~/repos/db-seminar-2/TESTS/K10 main*
+crdb-venv ❯ python3 k10c.py
+{"pairs": 500, "mr_violations_detected": 499, "note": "follower<strong is expected staleness; we count follower>strong which cannot happen -> should be 0"}
+
+~/repos/db-seminar-2/TESTS/K10 main*
+crdb-venv ❯

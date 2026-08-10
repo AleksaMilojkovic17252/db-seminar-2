@@ -1,0 +1,7 @@
+"name","value"
+clock-offset.meannanos,7887.0
+clock-offset.stddevnanos,73593.0
+follower_reads.success_count,23.0
+kv.closed_timestamp.max_behind_nanos,3151053603
+kv.rangefeed.closed_timestamp.slow_ranges,0.0
+kv.rangefeed.closed_timestamp_max_behind_nanos,6180682558
