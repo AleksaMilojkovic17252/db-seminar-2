@@ -1,9 +1,3 @@
-"""K10b: read-your-writes DELIBERATELY broken by a follower read, same session.
-
-follower_read_timestamp() returns a timestamp guaranteed to be servable by a follower,
-i.e. safely in the past. A write issued microseconds earlier is newer than that, so the
-historical read cannot see it. This is not a bug -- it is the documented, opt-in trade.
-"""
 import psycopg2, json
 
 c = psycopg2.connect("postgresql://root@localhost:26257/seminar2?sslmode=disable")

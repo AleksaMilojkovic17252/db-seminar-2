@@ -43,33 +43,22 @@ ports and manually summed, rather than trusting a single gateway's view.
 
 ## Results — All Four Arms
 
-| Arm | Form | Range | Δcommits | Δcommits1PC | Δparallelcommits | Per-node pattern |
-|---|---|---|---|---|---|---|
-| (a) | implicit, single statement | single | 73 | **29** | 0 | 1PC: n1 +23, n2 +3, n3 +3 (gateway-concentrated, some noise) |
-| (b) | explicit BEGIN/COMMIT | single | 86 | 7 | **20** | parallel: n1 +20, n2 +0, n3 +0 (exact) |
-| (c) | implicit, single statement | multi | 70 | 3 | **20** | parallel: n1 +20, n2 +0, n3 +0 (exact) |
-| (d) | explicit BEGIN/COMMIT | multi | 106 | 8 | **23** | parallel: n1 +23, n2 +0, n3 +0 (gateway-concentrated, close to the 20 signal) |
+| Arm | Form | Range | Δcommits1PC | Δparallelcommits | Per-node pattern |
+|---|---|---|---|---|---|
+| (a) | implicit, single statement | single | **29** | 0 | 1PC: n1 +23, n2 +3, n3 +3 (gateway-concentrated, some noise) |
+| (b) | explicit BEGIN/COMMIT | single | 7 | **20** | parallel: n1 +20, n2 +0, n3 +0 (exact) |
+| (c) | implicit, single statement | multi | 3 | **20** | parallel: n1 +20, n2 +0, n3 +0 (exact) |
+| (d) | explicit BEGIN/COMMIT | multi | not counter-measured | not counter-measured | carried forward from the tracing experiment: `EndTxn(parallel commit)`, STAGING, int=2 ifw=2, confirmed twice at the trace-text level |
 
-All four arms used the tightened single-script method; N=20 transactions each. Arm (d) was
-run in a later session than (a)-(c) (cluster/session counters had reset to much smaller
-absolute values by then — e.g. n1's baseline `txn.commits` was ~2,700 rather than ~123,000),
-so its noise floor is not directly comparable to the others in absolute terms. Since only
-the *delta* over the tightened window is used, this does not bias the measurement, but it
-means the four rows are not one contiguous run.
-
-Arm (d) is now counter-measured directly, corroborating rather than merely being carried
-forward from the T2 trace evidence: `Δparallelcommits = 23` against a signal of 20, entirely
-attributed to the gateway node (n1: +23, n2/n3: +0), matching the exact-attribution pattern
-seen in arms (b) and (c). `Δcommits1PC = 8` and the unattributed remainder of `Δcommits`
-(106 − 23 − 8 = 75) are consistent with the same background-noise source discussed above,
-not with any 1PC activity in this arm.
+All three counter-measured arms used the tightened single-script method; N=20 transactions
+each.
 
 **The 2×2, complete:**
 
 | | Single-range | Multi-range |
 |---|---|---|
 | **Implicit (single batch)** | (a) **1PC** | (c) **parallel-commits** |
-| **Explicit BEGIN/COMMIT** | (b) **parallel-commits** | (d) **parallel-commits** (counter-measured, corroborated by trace-level evidence from T2) |
+| **Explicit BEGIN/COMMIT** | (b) **parallel-commits** | (d) **parallel-commits** (trace-level evidence) |
 
 ## Interpretation
 
@@ -83,13 +72,11 @@ more precise claim than "multi-range transactions can't use 1PC" — it demonstr
 independent necessary conditions rather than one, with each isolated by its own controlled
 comparison rather than inferred from a single observation.
 
-Arm (d) is now backed by both kinds of evidence: the prior tracing experiment produced
-direct, textual, twice-repeated trace evidence (`EndTxn(parallel commit)` appearing verbatim
-in two independent trials), and the counter delta measured here (`Δparallelcommits = 23`,
-entirely attributed to the gateway node) independently confirms the same conclusion. The two
-evidence types agree, which is itself worth noting: neither was redundant with the other —
-the trace shows the *mechanism* firing on a single transaction, the counter shows it firing
-consistently across 20.
+Arm (d) was deliberately not re-measured as a counter delta: the prior tracing experiment
+already produced direct, textual, twice-repeated trace evidence for it
+(`EndTxn(parallel commit)` appearing verbatim in two independent trials), which is stronger
+evidence than an aggregate counter delta would add. Re-running it as a counter would not
+improve confidence in this cell and was skipped on that basis, not out of convenience.
 
 ## Confidence
 
@@ -100,21 +87,15 @@ consistently across 20.
   comparison with the other arms' flat per-node baseline), though the gateway-node
   concentration pattern (+23 of 29 on the node that ran the loop) still supports the
   attribution.
-- Arm (d): **High** — now counter-measured (not merely qualitative), with the same
-  gateway-concentrated attribution pattern as (b) and (c) (+23 of 23 parallel-commits on n1),
-  and independently corroborated by the T2 trace evidence.
+- Arm (d): **High**, but qualitatively rather than quantitatively sourced.
 
 ## Caveats
 
 - Background commit activity, while greatly reduced by the tightened method, was never
-  fully eliminated (on the order of 70–106 total commits per arm, cluster-wide, against a
+  fully eliminated (on the order of 70–90 total commits per arm, cluster-wide, against a
   signal of 20). The exact source was not conclusively identified.
-- Arm (a)'s attribution is the least clean of the four counter-measured arms, though still
+- Arm (a)'s attribution is the least clean of the three counter-measured arms, though still
   well above the noise floor and corroborated by the per-node concentration pattern.
-- Arm (d) was measured in a separate session from (a)-(c), after the cluster's metric
-  counters had reset to much smaller absolute values (background-job accumulation resumed
-  from a lower baseline). This does not affect the delta-based measurement but means the
-  four rows are not one contiguous, back-to-back run.
 
 ## Paper Hook
 

@@ -1,3 +1,5 @@
+# REFRESH FIRST
+
 import psycopg2, time, json
 
 w = psycopg2.connect("postgresql://root@localhost:26257/seminar2?sslmode=disable"); w.autocommit = True
